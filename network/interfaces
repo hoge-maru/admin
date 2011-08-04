@@ -1,0 +1,21 @@
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+auto eth3
+iface eth3 inet dhcp
+up sysctl -w net.ipv4.conf.eth3.forwarding=1
+up sysctl -w net.ipv4.conf.eth3.proxy_arp=1
+dns-nameservers 127.0.0.1
+
+auto wlan1
+allow-hotplug wlan1
+iface wlan1 inet static
+        address 10.0.0.1
+        netmask 255.255.255.0
+        network 10.0.0.0
+        broadcast 10.0.0.255
+        post-up /bin/echo "1" > /proc/sys/net/ipv4/ip_forward

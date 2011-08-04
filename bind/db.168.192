@@ -1,0 +1,14 @@
+$TTL	86400
+@	IN	SOA	hoge.org.	root.hoge.org.(
+					0000000001;
+					28800;
+					14400;
+					3600000;
+					86400);
+
+	IN	NS	localhost.
+11.102	IN	PTR	www.hoge.org.
+11.102	IN	PTR	ns.hoge.org.
+11.102	IN	PTR	mail.hoge.org.
+1.102	IN	PTR	gw102.hoge.org
+1.101	IN	PTR	gw101.hoge.org
